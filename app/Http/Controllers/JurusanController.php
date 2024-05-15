@@ -31,7 +31,7 @@ class JurusanController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'kode_jurusan' => 'required',
+            // 'kode_jurusan' => 'required',
             'nama_jurusan' => 'required',
             'kapasitas_jurusan' => 'required',
         ];
@@ -52,14 +52,22 @@ class JurusanController extends Controller
                 ->withInput();
         }
         $jurusan = new Jurusan();
-        $jurusan->kode_jurusan = $request->kode_jurusan;
+        // $jurusan->kode_jurusan = $request->kode_jurusan;
+        $jurusan->kode_jurusan = $this->generateUniqueCode();
         $jurusan->nama_jurusan = $request->nama_jurusan;
         $jurusan->kapasitas_jurusan = $request->kapasitas_jurusan;
         $jurusan->save();
         session()->put('success', 'Data Berhasil ditambahkan');
         return redirect()->route('jurusan.index');
     }
-
+    private function generateUniqueCode()
+    {
+        // Logika untuk menghasilkan nomor unik disini, misalnya:
+        // Ambil jumlah item yang ada dan tambahkan 1
+        $count = Jurusan::count() + 1;
+        // Format nomor unik menjadi string '001', '002', dst.
+        return str_pad($count, 3, '0', STR_PAD_LEFT);
+    }
     /**
      * Display the specified resource.
      */

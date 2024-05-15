@@ -13,7 +13,7 @@
             <div class="px-5 mt-5">
                 <form action="{{ route('jurusan.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="mb-4">
+                    {{-- <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">
                             Kode Jurusan
                         </label>
@@ -23,7 +23,7 @@
                         @error('kode_jurusan')
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
                         @enderror
-                    </div>
+                    </div> --}}
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2">
                             Nama Jurusan
