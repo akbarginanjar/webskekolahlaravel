@@ -62,10 +62,7 @@ class JurusanController extends Controller
     }
     private function generateUniqueCode()
     {
-        // Logika untuk menghasilkan nomor unik disini, misalnya:
-        // Ambil jumlah item yang ada dan tambahkan 1
         $count = Jurusan::count() + 1;
-        // Format nomor unik menjadi string '001', '002', dst.
         return str_pad($count, 3, '0', STR_PAD_LEFT);
     }
     /**

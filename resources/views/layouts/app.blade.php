@@ -10,6 +10,7 @@
     </head>
 
     <body bgcolor="whitesmoke">
+        <x-navbar></x-navbar>
         @yield('content')
     </body>
 
